@@ -26,3 +26,12 @@ body {
   }
 }
 
+.horrHouse {
+  background-image: url('/wallpaperflare.com_wallpaper.jpg');
+  height: 100vh;
+  background-size:cover; /* Ensure the image fits the container */
+  background-repeat: no-repeat; /* Prevent repeating */
+  background-position: center; /* Center the image */
+
+
+}
