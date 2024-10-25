@@ -50,7 +50,7 @@ const FaceRecognition = () => {
         canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
         const resizedFaceData = faceapi.resizeResults(faceAIData, videoRef.current);
         faceapi.draw.drawDetections(canvas, resizedFaceData);
-        faceapi.draw.drawFaceLandmarks(canvas, resizedFaceData);
+        // faceapi.draw.drawFaceLandmarks(canvas, resizedFaceData);
         faceapi.draw.drawFaceExpressions(canvas, resizedFaceData);
 
         drawFaceData(resizedFaceData, canvas, faceMatcher);
@@ -59,7 +59,7 @@ const FaceRecognition = () => {
   };
 
   const createFaceMatcher = async () => {
-    const refFace = await faceapi.fetchImage('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Michael_Jordan_in_2014.jpg/220px-Michael_Jordan_in_2014.jpg');
+    const refFace = await faceapi.fetchImage('https://www.facebook.com/photo.php?fbid=2327738390734835&set=pb.100004960894048.-2207520000&type=3');
     const refFaceAiData = await faceapi.detectAllFaces(refFace).withFaceLandmarks().withFaceDescriptors();
     return new faceapi.FaceMatcher(refFaceAiData);
   };
@@ -74,7 +74,7 @@ const FaceRecognition = () => {
   
       if (faceMatcher) {
         const label = faceMatcher.findBestMatch(descriptor).toString();
-        const options = label.includes("unknown") ? { label: "Unknown subject..." } : { label: "Jordan" };
+        const options = label.includes("unknown") ? { label: "Unknown subject..." } : { label: "Rockey" };
         const drawBox = new faceapi.draw.DrawBox(detection.box, options);
         drawBox.draw(canvas);
       }
@@ -96,3 +96,4 @@ const FaceRecognition = () => {
 }
 
 export default FaceRecognition;
+
