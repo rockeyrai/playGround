@@ -7,6 +7,8 @@ const GiftSystem = () => {
   const giftSet = ['mobile', 'laptop', 'house', 'guitar'];
 
   useEffect(() => {
+
+    // localStorage is a built-in JavaScript object that allows you to store key-value pairs in a web browser. It provides a way to store data persistently, meaning the data remains available even after the user closes or refreshes the page.
     const savedData = localStorage.getItem('giftData');
     if (savedData) {
       setData(JSON.parse(savedData));
@@ -14,6 +16,7 @@ const GiftSystem = () => {
       setData([]);
     }
   }, []);
+  // localStorage.setItem(key, value): Stores a value in localStorage under the specified key
 
   useEffect(() => {
     if (data !== null) {
